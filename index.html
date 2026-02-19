@@ -304,7 +304,6 @@
       var form = this;
       var data = new FormData(form);
       data.append('_subject', 'New Contact | MojuMedia.com');
-      data.append('_captcha', 'false');
       fetch('https://formsubmit.co/ajax/mojumedia@gmail.com', {
         method: 'POST',
         body: data
