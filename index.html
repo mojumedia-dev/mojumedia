@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moju Media — Small Business Digital Partner</title>
+  <meta name="description" content="Moju Media delivers tailored digital advertising, creative services, and accessible AI solutions for small businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #6C3CE1;
+      --primary-dark: #5228C0;
+      --accent: #FF6B35;
+      --dark: #0F0F1A;
+      --gray-900: #1A1A2E;
+      --gray-700: #3D3D5C;
+      --gray-400: #8888A8;
+      --gray-200: #E0E0EE;
+      --gray-100: #F4F4FA;
+      --white: #FFFFFF;
+      --gradient: linear-gradient(135deg, var(--primary), #9B59B6, var(--accent));
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(15,15,26,0.92); backdrop-filter: blur(12px);
+      padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; }
+    .logo span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--gray-200); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: var(--dark); position: relative; overflow: hidden; text-align: center; padding: 6rem 2rem 4rem;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(108,60,225,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(255,107,53,0.1) 0%, transparent 50%);
+      animation: drift 20s ease-in-out infinite alternate;
+    }
+    @keyframes drift { 0% { transform: translate(0,0); } 100% { transform: translate(-5%,3%); } }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; color: var(--white); margin-bottom: 1.5rem; line-height: 1.1; }
+    .hero h1 .highlight { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.2rem; color: var(--gray-400); max-width: 600px; margin: 0 auto 2.5rem; }
+    .btn {
+      display: inline-block; padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: 600;
+      font-size: 1rem; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--gradient); color: var(--white); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(108,60,225,0.4); }
+    .btn-outline { border: 2px solid var(--gray-400); color: var(--gray-200); background: transparent; margin-left: 1rem; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .section-title { text-align: center; margin-bottom: 3.5rem; }
+    .section-title h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; margin-bottom: 0.75rem; }
+    .section-title p { color: var(--gray-700); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+
+    /* SERVICES */
+    .services { background: var(--gray-100); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+    .service-card {
+      background: var(--white); border-radius: 16px; padding: 2.5rem 2rem; text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(108,60,225,0.12); }
+    .service-icon { font-size: 2.8rem; margin-bottom: 1.2rem; }
+    .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .service-card p { color: var(--gray-700); font-size: 0.95rem; }
+
+    /* ABOUT */
+    .about { max-width: 900px; margin: 0 auto; }
+    .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-text h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary); }
+    .about-text p { color: var(--gray-700); margin-bottom: 1rem; }
+    .about-values { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+    .value-tag {
+      background: var(--gray-100); color: var(--primary-dark); padding: 0.5rem 1rem;
+      border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+    }
+    .about-visual {
+      display: flex; align-items: center; justify-content: center;
+      background: var(--gradient); border-radius: 20px; padding: 3rem; min-height: 300px;
+    }
+    .about-visual-text { color: var(--white); font-size: 3rem; font-weight: 800; text-align: center; line-height: 1.2; }
+
+    /* CONTACT */
+    .contact { background: var(--gray-900); color: var(--white); }
+    .contact .section-title p { color: var(--gray-400); }
+    .contact .section-title h2 { color: var(--white); }
+    .contact-wrapper { max-width: 600px; margin: 0 auto; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--gray-200); }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.85rem 1rem; border-radius: 10px; border: 2px solid var(--gray-700);
+      background: var(--dark); color: var(--white); font-family: inherit; font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none; border-color: var(--primary);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .submit-btn { width: 100%; padding: 1rem; font-size: 1.05rem; }
+    .form-note { text-align: center; margin-top: 1rem; color: var(--gray-400); font-size: 0.85rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); color: var(--gray-400); text-align: center;
+      padding: 2rem; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark); padding: 1.5rem 2rem; gap: 1.2rem; }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+      .hero .btn-outline { margin: 0.75rem 0 0; display: inline-block; }
+      .about-content { grid-template-columns: 1fr; }
+      .about-visual { min-height: 200px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo"><span>Moju</span>Media</a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Partner in <span class="highlight">Small Business Success</span></h1>
+      <p>Tailored digital advertising, creative services, and accessible AI solutions — helping you stand out online and grow smarter.</p>
+      <div>
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="section-title">
+      <h2>What We Do</h2>
+      <p>From strategic campaigns to captivating content, we deliver results that move the needle.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📣</div>
+        <h3>Digital Advertising</h3>
+        <p>Strategic paid campaigns across Google, Meta, and beyond — built around your budget and goals with transparent reporting every step of the way.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Creative Services</h3>
+        <p>Eye-catching design, compelling copy, and scroll-stopping content that captures your brand voice and connects with your audience.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI Solutions</h3>
+        <p>Accessible AI tools and automation that drive efficiency and growth — no PhD required. We make cutting-edge tech work for small business.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Transparent Reporting</h3>
+        <p>Clear, honest performance reports so you always know exactly where your money goes and what it's doing for your business.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Collaborative Support</h3>
+        <p>We're not a faceless agency. We partner with you — learning your business, adapting to your needs, and growing together.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>Growth Strategy</h3>
+        <p>Data-driven roadmaps that align your digital presence with real business objectives. We help you scale with confidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about">
+      <div class="section-title">
+        <h2>About Moju Media</h2>
+        <p>We believe every small business deserves big-brand results.</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Built for Businesses Like Yours</h3>
+          <p>Moju Media was founded on a simple idea: small businesses shouldn't have to choose between quality and affordability. We combine hands-on creative expertise with the power of AI to deliver campaigns that punch above their weight.</p>
+          <p>Whether you're just getting started online or ready to scale, we meet you where you are and help you get where you want to go.</p>
+          <div class="about-values">
+            <span class="value-tag">Transparent</span>
+            <span class="value-tag">Collaborative</span>
+            <span class="value-tag">AI-Forward</span>
+            <span class="value-tag">Results-Driven</span>
+            <span class="value-tag">Small Biz Focused</span>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-visual-text">Stand Out.<br>Grow Smart.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="section-title">
+      <h2>Let's Talk</h2>
+      <p>Ready to grow? Drop us a line and we'll get back to you within 24 hours.</p>
+    </div>
+    <div class="contact-wrapper">
+      <form action="https://formsubmit.co/mojumedia@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Contact — MojuMedia.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="#">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="business">Business Name</label>
+          <input type="text" id="business" name="business" placeholder="Your business (optional)">
+        </div>
+        <div class="form-group">
+          <label for="interest">What are you interested in?</label>
+          <select id="interest" name="interest">
+            <option value="">Select a service...</option>
+            <option value="advertising">Digital Advertising</option>
+            <option value="creative">Creative Services</option>
+            <option value="ai">AI Solutions</option>
+            <option value="strategy">Growth Strategy</option>
+            <option value="other">Something Else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Tell us about your business and goals..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+        <p class="form-note">We'll never share your info. Promise. 🤞</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Moju Media. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
