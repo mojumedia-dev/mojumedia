@@ -252,10 +252,7 @@
       <p>Ready to grow? Drop us a line and we'll get back to you within 24 hours.</p>
     </div>
     <div class="contact-wrapper">
-      <form action="https://formsubmit.co/mojumedia@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Contact | MojuMedia.com">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="#">
+      <form id="contact-form">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
@@ -288,6 +285,11 @@
         <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
         <p class="form-note">We'll never share your info. Promise. 🤞</p>
       </form>
+      <div id="thank-you" style="display:none; text-align:center; padding: 3rem 0;">
+        <div style="font-size:3rem; margin-bottom:1rem;">✅</div>
+        <h3 style="color:var(--white); font-size:1.6rem; margin-bottom:0.75rem;">Thank You!</h3>
+        <p style="color:var(--gray-400); font-size:1.05rem;">We got your message and will be in touch within 24 hours.</p>
+      </div>
     </div>
   </section>
 
@@ -296,5 +298,24 @@
     <p>&copy; 2026 Moju Media. All rights reserved.</p>
   </footer>
 
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var data = new FormData(form);
+      data.append('_subject', 'New Contact | MojuMedia.com');
+      data.append('_captcha', 'false');
+      fetch('https://formsubmit.co/ajax/mojumedia@gmail.com', {
+        method: 'POST',
+        body: data
+      }).then(function(res) { return res.json(); }).then(function() {
+        form.style.display = 'none';
+        document.getElementById('thank-you').style.display = 'block';
+      }).catch(function() {
+        form.style.display = 'none';
+        document.getElementById('thank-you').style.display = 'block';
+      });
+    });
+  </script>
 </body>
 </html>
