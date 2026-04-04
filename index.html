@@ -95,6 +95,36 @@
     .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
     .service-card p { color: var(--gray-700); font-size: 0.95rem; }
 
+    /* MOJUCREW */
+    .mojucrew { background: var(--dark); color: var(--white); }
+    .mojucrew .section-title h2 { color: var(--white); }
+    .mojucrew .section-title p { color: var(--gray-400); }
+    .mojucrew-badge {
+      display: inline-block; background: var(--gradient); color: var(--white);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.35rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+    }
+    .mojucrew-hero { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+    .mojucrew-hero h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--white); margin-bottom: 1rem; line-height: 1.15; }
+    .mojucrew-hero p { color: var(--gray-400); font-size: 1.1rem; margin-bottom: 2rem; }
+    .crew-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto 3rem; }
+    .crew-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px; padding: 1.75rem 1.5rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .crew-card:hover { border-color: rgba(108,60,225,0.5); transform: translateY(-4px); }
+    .crew-card .crew-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .crew-card h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .crew-card p { font-size: 0.875rem; color: var(--gray-400); line-height: 1.5; }
+    .mojucrew-cta { text-align: center; }
+    .mojucrew-pricing { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .price-pill {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--gray-200); padding: 0.6rem 1.4rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600;
+    }
+    .price-pill strong { color: var(--white); }
+
     /* ABOUT */
     .about { max-width: 900px; margin: 0 auto; }
     .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
@@ -157,6 +187,7 @@
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">☰</button>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
+      <li><a href="#mojucrew">MojuCrew</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="sms:+18016991343">📱 Text Us</a></li>
@@ -230,6 +261,39 @@
     </div>
   </section>
 
+  <!-- MOJUCREW -->
+  <section id="mojucrew" class="mojucrew">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="mojucrew-hero">
+        <div class="mojucrew-badge">Powered by Moju Media</div>
+        <h2>Introducing <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">MojuCrew</span></h2>
+        <p>Your AI staff on demand. A full crew of AI workers handling chat, CRM, reviews, bookings, and more — so you can focus on running your business.</p>
+        <a href="https://moju-crew-n8lr6gpyf-bigfuns-projects-7480935f.vercel.app/" target="_blank" class="btn btn-primary">Meet the crew →</a>
+      </div>
+
+      <div class="crew-grid">
+        <div class="crew-card"><div class="crew-icon">💬</div><h4>MojuChat</h4><p>AI receptionist — answers questions, books appointments, qualifies leads 24/7.</p></div>
+        <div class="crew-card"><div class="crew-icon">📋</div><h4>MojuCRM</h4><p>Logs interactions, sends follow-ups, keeps your pipeline organized automatically.</p></div>
+        <div class="crew-card"><div class="crew-icon">⭐</div><h4>MojuReviews</h4><p>Monitors Google &amp; Yelp reviews and responds on your behalf in your brand voice.</p></div>
+        <div class="crew-card"><div class="crew-icon">📅</div><h4>MojuBooking</h4><p>Handles appointment scheduling end-to-end so you never miss a booking.</p></div>
+        <div class="crew-card"><div class="crew-icon">🎯</div><h4>MojuLeads</h4><p>Runs automated follow-up sequences to keep leads warm while you're busy.</p></div>
+        <div class="crew-card"><div class="crew-icon">💰</div><h4>MojuBilling</h4><p>Sends invoices and chases overdue payments so you get paid on time.</p></div>
+        <div class="crew-card"><div class="crew-icon">🔍</div><h4>MojuResearch</h4><p>Tracks competitors and delivers weekly market insights straight to your inbox.</p></div>
+        <div class="crew-card"><div class="crew-icon">✉️</div><h4>MojuEmail</h4><p>Writes and schedules email campaigns and newsletters in your brand voice.</p></div>
+      </div>
+
+      <div class="mojucrew-cta">
+        <div class="mojucrew-pricing">
+          <div class="price-pill">Starter — <strong>$79/mo</strong> · 1 bot</div>
+          <div class="price-pill">Growth — <strong>$199/mo</strong> · 3 bots</div>
+          <div class="price-pill">Full Crew — <strong>$349/mo</strong> · All 11 bots</div>
+        </div>
+        <a href="https://moju-crew-n8lr6gpyf-bigfuns-projects-7480935f.vercel.app/sign-up" target="_blank" class="btn btn-primary">Hire your crew today</a>
+        <span style="margin-left:1rem;"><a href="https://moju-crew-n8lr6gpyf-bigfuns-projects-7480935f.vercel.app/pricing" target="_blank" class="btn btn-outline">See all plans</a></span>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="about">
@@ -283,6 +347,7 @@
           <label for="interest">What are you interested in?</label>
           <select id="interest" name="interest">
             <option value="">Select a service...</option>
+            <option value="mojucrew">MojuCrew (AI Staff)</option>
             <option value="advertising">Digital Advertising</option>
             <option value="creative">Creative Services</option>
             <option value="ai">AI Solutions</option>
